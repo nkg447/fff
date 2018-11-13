@@ -33,6 +33,7 @@ hist() {
 }
 
 open() {
+    [[ "$1" == //* ]] && { file="${1/?}"; } || file="$1"
     [[ -d $1/ ]] && { l=0; refresh; PWD="${1:-/}"; get_dir; f_print; }
     [[ -f $1  ]] && { shopt -s nocasematch
         case "${1##*.}" in
@@ -54,10 +55,10 @@ open() {
             xbm|xif|xla|xlam|xls|xlsb|xlsm|xlsx|xlt|xltm|xltx|xm|xmind|xpi|xpm|\
             xwd|xz|z|zip|zipx)
                 [[ "$OSTYPE" == darwin* ]] && oc="open"
-                nohup "${FFF_OPENER:-${oc:-xdg-open}}" "$1" &>/dev/null & disown
+                nohup "${FFF_OPENER:-${oc:-xdg-open}}" "$file" &>/dev/null & disown
             ;;
 
-            *) "${FFF_EDITOR:-${EDITOR:-vi}}" "$1"; printf '\e[?25l' ;;
+            *) "${FFF_EDITOR:-${EDITOR:-vi}}" "$file"; printf '\e[?25l' ;;
         esac
     }; shopt -u nocasematch
 }
@@ -95,6 +96,7 @@ key() {
 
         r|d|n|f|/) prompt "$1" ;;
         \~) g="$PWD"; hist; open ~ ;;
+        a) g="$PWD"; hist; open /media/$USER ;;
         t)  g="$PWD"; hist; open ~/.cache/fff/trash ;;
 
         [1-9]) fa="FFF_FAV${1}"; fa="${!fa}"
@@ -119,3 +121,4 @@ main() {
 }
 
 main "$@"
+

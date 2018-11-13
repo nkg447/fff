@@ -1,35 +1,31 @@
-# fff (*Fucking Fast File-Manager*)
+# fff (_Fucking Fast File-Manager_)
 
 <a href="https://asciinema.org/a/IKG1pSkeIQkc4dSjw4S0DZjXj" target="_blank"><img src="https://asciinema.org/a/IKG1pSkeIQkc4dSjw4S0DZjXj.png" alt="img" height="300px" align="right"/></a>
 
 A [WIP] simple file manager written in `bash`.
 
 - It's Fucking Fast 🚀
-- Minimal (*~100 lines of bash*)
-- Smooth Scrolling (*using vim keybindings*)
-- File Operations (*copy, paste, rename, cut, etc*)
+- Minimal (_~100 lines of bash_)
+- Smooth Scrolling (_using vim keybindings_)
+- File Operations (_copy, paste, rename, cut, etc_)
 - Basic Search
-
 
 ## Dependencies
 
 - `bash 3.2+`
-- program handling (non-text): `xdg-open` (*not needed on macos*)
+- program handling (non-text): `xdg-open` (_not needed on macos_)
 - copying: `cp`
 - moving, renaming, trash: `mv`
 - creating dirs: `mkdir`
-
 
 ## Running
 
 1. `fff` or `fff path/to/dir`, `fff ../../`, `fff /usr/share/`
 2. optional: `alias f="fff"`
 
-
 ## Packages
 
 - [arch (aur)](https://aur.archlinux.org/packages/fff-git/)
-
 
 ## Usage
 
@@ -48,6 +44,7 @@ G: go to bottom
 /: search
 t: go to trash
 ~: go to home
+a: go to /media
 
 [1-9]: favourites (see customization)
 
